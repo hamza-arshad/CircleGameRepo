@@ -1,26 +1,40 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+
+
 public class CircleController : MonoBehaviour {
     [SerializeField]
     GameObject filledCircle;
     [SerializeField]
     GameObject dottedCircle;
 
+    [SerializeField]
+    GameObject plus;
     
+    [SerializeField]
+    GameObject minus;
+
     GameObject game;
     GameController controller;
     SpriteRenderer renderer1;
     SpriteRenderer renderer2;
 
+    private bool died;
+    private bool done;
     bool pressed;
     bool flag;
-    float speed = 1;
+    float speed = 0;
+    float time;
+    float op;
 
 	void Start () {
-        speed = Random.Range(0.5f, 2.0f);
         pressed = false;
         flag = false;
+        died = false;
+        time = 1.0F;
+        dottedCircle.SetActive(true);
+        plus.SetActive(true);
         renderer1 = dottedCircle.GetComponent<SpriteRenderer>();
         renderer2 = filledCircle.GetComponent<SpriteRenderer>();
         renderer1.color = new Color(255,255,255,255);
@@ -29,10 +43,29 @@ public class CircleController : MonoBehaviour {
         controller = game.GetComponent<GameController>();
 
 	}
+
+    void DestroySweet()
+    {
+        Color c = renderer2.color;            ;
+        c = Color.Lerp(c, new Color(c.r, c.g, c.b, c.a - 1), Time.deltaTime / time);
+        if (c.a <= 0)
+        {
+            Destroy(this.gameObject);
+            return;     
+        }
+        renderer2.color = c;
+        dottedCircle.SetActive(false);
+        plus.SetActive(false);
+    }
 	
 	// Update is called once per frame
 	void Update () {
+        if (died)
+        {
+            DestroySweet();
+            return;
 
+        }
         if (pressed)
         {
 
@@ -43,7 +76,7 @@ public class CircleController : MonoBehaviour {
         {
             float fx = filledCircle.transform.localScale.x;
             float dx = dottedCircle.transform.localScale.x;
-            float per = dx * 0.05F;
+            float per = dx * 0.055F;
             float minX = dx - per;
             float maxX = dx + per;
 
@@ -51,25 +84,32 @@ public class CircleController : MonoBehaviour {
             {
 
                 Debug.Log("U Won");
-                SpriteRenderer renderer = filledCircle.GetComponent<SpriteRenderer>();
-                renderer.color = new Color(0f, 128f, 0f, 1f);
-                controller.destroy();
-                flag = false;
-
+                
+                renderer2.color = new Color(0f, 128f, 0f, 1f);
+                done = true;
+                
             }
             else
             {
+                
+                renderer2.color = new Color(1f, 0f, 0f, 1f);
+                done = false;
                 Debug.Log("U lose");
             }
-             
 
+
+            died = true;
+            flag = false;
+            controller.Done(done);
 
         }
 
+        
 
 
-	
-	}
+
+
+    }
 
    public void SetPressed(bool f)
     {

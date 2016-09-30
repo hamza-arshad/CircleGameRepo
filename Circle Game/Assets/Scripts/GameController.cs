@@ -1,63 +1,66 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
+
+
 
 public class GameController : MonoBehaviour {
     bool isDown = false;
     [SerializeField]
     GameObject CirclePrefab;
-    private CircleController currntController;
+    [SerializeField]
+    Text scoreBox;
 
+
+    private CircleController currntController;
+    private GameObject obj;
+    private SpriteRenderer sp;
     private float speed = 0;
     private float x, y;
     private float dx;
     private float dy;
-    private GameObject obj;
-    private SpriteRenderer sp;
     private float s;
-    private bool destroyFlag;
+    private int score;
     
-    // Use this for initialization
     void Start () {
         
         Application.targetFrameRate = 60;
         create();
-        sp = obj.GetComponentInChildren<SpriteRenderer>();
-        destroyFlag = false;
+        scoreBox.text = "0";
+        score = 0;
     }
 
-    
+   public void Done(bool done) {
+        if (done) {
+            this.score += 1;
+            scoreBox.text = score.ToString();
+            create();
+        }
+        else {
+            GameOver();
 
-    public void destroy()
-    {
+        }
+    }
 
-        destroyFlag = true;
+
+    void GameOver() {
+        
+        
 
     }
 
-    void create ()
-    {
-        speed = Random.Range(2.0F, 5.0F);
+    void create () {
+        
         s = Random.Range(0.5F, 1F);
         dx = Random.Range(-1.5F, 1.5F);
-        dy = Random.Range(-4F, 4F);
+        dy = Random.Range(-3F, 2F);
         obj = Instantiate(CirclePrefab);
         currntController = obj.GetComponent<CircleController>();
         obj.transform.position = new Vector3(dx, dy, 1);
         currntController.SetDottedScale(s,s,1);
-        currntController.SetSpeed(speed);
-
-
-
+        currntController.SetSpeed(s*1.5F);
     }
 
-
-    void Dop(float op)
-    {
-        sp.color = new Color(0f, 128f, 0f, op);
-
-    }
-	
-	// Update is called once per frame
 	void Update () {
 	    if(Input.GetMouseButtonDown(0) && !isDown)
         {
@@ -71,32 +74,16 @@ public class GameController : MonoBehaviour {
             OnMouseUp();
 
         }
-
-
-        if (destroyFlag)
-        {
-            float op = sp.color.a;
-            if (op == 0)
-            {
-                Object.Destroy(obj);
-                destroyFlag = false;
-            }
-            else
-            {
-                op--;
-                Dop(op);
-            }
-
-
-        }
-
-
-
     }
+
+
+
     void OnMouseDown()
     {
         currntController.SetPressed(true);
     }
+
+
     void OnMouseUp()
     {
         currntController.SetPressed(false);

@@ -1,0 +1,298 @@
+fileFormatVersion: 2
+guid: 8cda3bd2e8335304297f7c37c1108493
+timeCreated: 1475240282
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: CirclesSheet_Circle_Filled
+    21300002: CirclesSheet_FilledCircle
+    21300004: CirclesSheet_Paly
+    21300006: CirclesSheet_3
+    21300008: CirclesSheet_4
+    21300010: CirclesSheet_5
+    21300012: CirclesSheet_Unmute
+    21300014: CirclesSheet_Mute
+    21300016: CirclesSheet_Help
+    21300018: CirclesSheet_ICE
+    21300020: CirclesSheet_Pause
+    21300022: CirclesSheet_11
+    21300024: CirclesSheet_Plus
+    21300026: CirclesSheet_Minus
+    21300028: CirclesSheet_14
+    21300030: CirclesSheet_15
+    21300032: CirclesSheet_16
+    21300034: CirclesSheet_17
+    21300036: CirclesSheet_18
+    21300038: CirclesSheet_19
+    21300040: CirclesSheet_20
+    21300042: CirclesSheet_21
+    21300044: CirclesSheet_22
+    21300046: CirclesSheet_23
+    21300048: CirclesSheet_24
+    21300050: CirclesSheet_25
+    21300052: CirclesSheet_26
+    21300054: CirclesSheet_27
+    21300056: CirclesSheet_28
+    21300058: CirclesSheet_Mute
+    21300060: CirclesSheet_Help
+    21300062: CirclesSheet_Ice
+    21300064: CirclesSheet_Pause
+    21300066: CirclesSheet_33
+    21300068: CirclesSheet_Play
+    21300070: CirclesSheet_Minus
+    21300072: CirclesSheet_Plus
+    21300074: CirclesSheet_Bubble
+    21300076: CirclesSheet_Fill
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  buildTargetSettings:
+  - buildTarget: Android
+    maxTextureSize: 2048
+    textureFormat: -1
+    compressionQuality: 50
+    allowsAlphaSplitting: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: CirclesSheet_Fill
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 328
+        width: 475
+        height: 475
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: CirclesSheet_FilledCircle
+      rect:
+        serializedVersion: 2
+        x: 728
+        y: 346
+        width: 439
+        height: 438
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: CirclesSheet_Paly
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 80
+        width: 154
+        height: 173
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: CirclesSheet_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1
+        height: 1
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: CirclesSheet_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1
+        height: 1
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: CirclesSheet_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1
+        height: 1
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: CirclesSheet_Unmute
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 146
+        width: 69
+        height: 52
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: CirclesSheet_Mute
+      rect:
+        serializedVersion: 2
+        x: 454
+        y: 140
+        width: 69
+        height: 65
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: CirclesSheet_Help
+      rect:
+        serializedVersion: 2
+        x: 581
+        y: 137
+        width: 41
+        height: 70
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: CirclesSheet_ICE
+      rect:
+        serializedVersion: 2
+        x: 680
+        y: 127
+        width: 104
+        height: 86
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: CirclesSheet_Pause
+      rect:
+        serializedVersion: 2
+        x: 842
+        y: 141
+        width: 50
+        height: 63
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: CirclesSheet_11
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1
+        height: 1
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: CirclesSheet_Plus
+      rect:
+        serializedVersion: 2
+        x: 949
+        y: 127
+        width: 67
+        height: 67
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: CirclesSheet_Minus
+      rect:
+        serializedVersion: 2
+        x: 1075
+        y: 158
+        width: 59
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: CirclesSheet_14
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1
+        height: 1
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
