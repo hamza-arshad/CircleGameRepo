@@ -14,12 +14,14 @@ public class CircleController : MonoBehaviour {
     
     [SerializeField]
     GameObject minus;
+    [SerializeField]
+    float DyingSpeed=1;
 
     GameObject game;
     GameController controller;
     SpriteRenderer renderer1;
     SpriteRenderer renderer2;
-
+   
     private bool died;
     private bool done;
     bool pressed;
@@ -27,26 +29,26 @@ public class CircleController : MonoBehaviour {
     float speed = 0;
     float time;
     float op;
-
-	void Start () {
+    
+	void Awake () {
         pressed = false;
         flag = false;
         died = false;
-        time = 1.0F;
+        time = 1/DyingSpeed;
         dottedCircle.SetActive(true);
         plus.SetActive(true);
         renderer1 = dottedCircle.GetComponent<SpriteRenderer>();
         renderer2 = filledCircle.GetComponent<SpriteRenderer>();
         renderer1.color = new Color(255,255,255,255);
-        renderer2.color = new Color(255, 255, 255, 255);
+        renderer2.color = new Color(0, 0, 0, 1);
         game = GameObject.Find("GameController");
         controller = game.GetComponent<GameController>();
-
+        
 	}
 
     void DestroySweet()
     {
-        Color c = renderer2.color;            ;
+        Color c = renderer2.color;
         c = Color.Lerp(c, new Color(c.r, c.g, c.b, c.a - 1), Time.deltaTime / time);
         if (c.a <= 0)
         {
@@ -68,8 +70,10 @@ public class CircleController : MonoBehaviour {
         }
         if (pressed)
         {
-
-            filledCircle.transform.localScale = Vector3.Lerp(filledCircle.transform.localScale, new Vector3(filledCircle.transform.localScale.x + 1, filledCircle.transform.localScale.y + 1, 1), Time.deltaTime * speed);
+            if(plus.activeSelf == true)
+                filledCircle.transform.localScale = Vector3.Lerp(filledCircle.transform.localScale, new Vector3(filledCircle.transform.localScale.x + 1, filledCircle.transform.localScale.y + 1, 1), Time.deltaTime * speed);
+            else
+                filledCircle.transform.localScale = Vector3.Lerp(filledCircle.transform.localScale, new Vector3(filledCircle.transform.localScale.x - 1, filledCircle.transform.localScale.y - 1, 1), Time.deltaTime * speed);
             flag = true; 
         }
         if(!pressed && flag)
@@ -82,8 +86,7 @@ public class CircleController : MonoBehaviour {
 
             if(fx>=minX && fx<= maxX)
             {
-
-                Debug.Log("U Won");
+                
                 
                 renderer2.color = new Color(0f, 128f, 0f, 1f);
                 done = true;
@@ -94,7 +97,7 @@ public class CircleController : MonoBehaviour {
                 
                 renderer2.color = new Color(1f, 0f, 0f, 1f);
                 done = false;
-                Debug.Log("U lose");
+                controller.GameOver();
             }
 
 
@@ -127,5 +130,18 @@ public class CircleController : MonoBehaviour {
     {
         dottedCircle.transform.localScale = new Vector3(x, y, z);
     }
+
+    public void SetFilledScale(float x, float y, float z)
+    {
+
+        filledCircle.transform.localScale = new Vector3(x, y, z);
+
+    }
+    public void isGrowingCircle(bool isGrowing)
+    {
+        plus.SetActive(isGrowing);
+        minus.SetActive(!isGrowing);
+    }
+    
 
 }
