@@ -52,7 +52,7 @@ public class GameController : MonoBehaviour {
         if(dropCount > totalDrops)
         {
             Debug.Log("DROP");
-            currentSpeed = Random.Range(minSpeed + currentSpeed * 0.25f, minSpeed + currentSpeed * 0.75f);
+            currentSpeed = Random.Range((minSpeed + currentSpeed) * 0.25f, (minSpeed + currentSpeed) * 0.75f);
              dropCount = 0;
             
         }
