@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: ac9cfdda3dde2694eba97de4cad660a1
+timeCreated: 1475480643
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Ghostmeat
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 7bf1afc8015d4e54c98c1898d7616877, type: 3}
+  - {fileID: 12800000, guid: 7e48965b3dbbf9245945bcc44637d10b, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

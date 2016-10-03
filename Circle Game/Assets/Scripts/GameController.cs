@@ -12,6 +12,12 @@ public class GameController : MonoBehaviour {
     Text scoreBox;
     [SerializeField]
     Text textLog;
+    [SerializeField]
+    GameObject gameOverPanel;
+    [SerializeField]
+    Text scoretext;
+    [SerializeField]
+    Text highScoreText;
 
     private CircleController currntController;
     private GameObject obj;
@@ -27,10 +33,12 @@ public class GameController : MonoBehaviour {
     private float dy;
     private float dottedScale;
     private int score;
+    private int highScore;
     private float filledScale;
     
     void Start () {
-        
+        gameOverPanel.SetActive(false);
+        scoreBox.enabled = true;
         Application.targetFrameRate = 60;
         currentSpeed = minSpeed;
         int a = Random.Range(1, 3);
@@ -42,6 +50,7 @@ public class GameController : MonoBehaviour {
 
         scoreBox.text = "0";
         score = 0;
+        highScore = PlayerPrefs.GetInt(Helpers.HIGHSCORE_KEY, 0);
     }
      void setSpeed()
     {
@@ -84,14 +93,28 @@ public class GameController : MonoBehaviour {
 
 
     public void GameOver() {
-        SceneManager.LoadScene(0);
+        //SceneManager.LoadScene(0);
+        gameOverPanel.SetActive(true);
         
+        if (highScore < score)
+        {
+            PlayerPrefs.SetInt(Helpers.HIGHSCORE_KEY, score);
+            highScoreText.text = "New High Score";
+        }
+        else
+        {
+            highScoreText.text = highScore.ToString();
+        }
+        
+        scoretext.text = score.ToString();
+        scoreBox.enabled = false;
 
     }
 
 
 
     void CreateDecreasingCircle() {
+        
         setSpeed();
         dottedScale = Random.Range(0.2F, 0.5F);
         filledScale = Random.Range(dottedScale + 0.15F, 1F);

@@ -6,11 +6,16 @@ using UnityEngine.SceneManagement;
 public class ButtonController : MonoBehaviour {
 
 	
-    public void PlayButton()
-    {
+    public void PlayButton() {
         SceneManager.LoadScene(1);
 
+    }
+
+    public void HomeButton() {
+
+        SceneManager.LoadScene(0);
 
     }
+
 
 }

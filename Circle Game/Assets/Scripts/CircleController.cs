@@ -28,7 +28,7 @@ public class CircleController : MonoBehaviour {
     bool flag;
     float speed = 0;
     float time;
-    float op;
+    
     
 	void Awake () {
         pressed = false;
