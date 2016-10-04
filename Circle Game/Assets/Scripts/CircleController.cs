@@ -58,6 +58,7 @@ public class CircleController : MonoBehaviour {
         renderer2.color = c;
         dottedCircle.SetActive(false);
         plus.SetActive(false);
+        minus.SetActive(false);
     }
 	
 	// Update is called once per frame
@@ -80,7 +81,8 @@ public class CircleController : MonoBehaviour {
         {
             float fx = filledCircle.transform.localScale.x;
             float dx = dottedCircle.transform.localScale.x;
-            float per = dx * 0.055F;
+            float per = 0.03f;// (1/dx) * 0.055F;
+            Debug.Log(fx+", "+ dx + ", " + per);
             float minX = dx - per;
             float maxX = dx + per;
 

@@ -1,13 +1,13 @@
 fileFormatVersion: 2
 guid: 8cda3bd2e8335304297f7c37c1108493
-timeCreated: 1475240282
+timeCreated: 1475577178
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
     21300000: CirclesSheet_Circle_Filled
     21300002: CirclesSheet_FilledCircle
     21300004: CirclesSheet_Paly
-    21300006: CirclesSheet_3
+    21300006: UnMute
     21300008: CirclesSheet_4
     21300010: CirclesSheet_5
     21300012: CirclesSheet_Unmute
@@ -15,10 +15,10 @@ TextureImporter:
     21300016: CirclesSheet_Help
     21300018: CirclesSheet_ICE
     21300020: CirclesSheet_Pause
-    21300022: CirclesSheet_11
+    21300022: Plus
     21300024: CirclesSheet_Plus
     21300026: CirclesSheet_Minus
-    21300028: CirclesSheet_14
+    21300028: Help
     21300030: CirclesSheet_15
     21300032: CirclesSheet_16
     21300034: CirclesSheet_17
@@ -43,6 +43,21 @@ TextureImporter:
     21300072: CirclesSheet_Plus
     21300074: CirclesSheet_Bubble
     21300076: CirclesSheet_Fill
+    21300078: FillerCircle
+    21300080: WhiteFilledCircle
+    21300082: Play
+    21300084: Mute
+    21300086: Help
+    21300088: Ice
+    21300090: Pause
+    21300092: Pause
+    21300094: minus
+    21300096: FilledBlackCircle
+    21300098: FilledWhiteCircle
+    21300100: CirclesSheet_6
+    21300102: CirclesSheet_8
+    21300104: CirclesSheet_11
+    21300106: Minus
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -65,8 +80,8 @@ TextureImporter:
   cubemapConvolutionSteps: 7
   cubemapConvolutionExponent: 1.5
   seamlessCubemap: 0
-  textureFormat: -1
-  maxTextureSize: 2048
+  textureFormat: -3
+  maxTextureSize: 512
   textureSettings:
     filterMode: -1
     aniso: 16
@@ -75,7 +90,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   rGBM: 0
-  compressionQuality: 50
+  compressionQuality: 100
   allowsAlphaSplitting: 0
   spriteMode: 2
   spriteExtrude: 1
@@ -97,52 +112,52 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: CirclesSheet_Fill
+      name: FilledBlackCircle
       rect:
         serializedVersion: 2
-        x: 83
-        y: 328
-        width: 475
-        height: 475
+        x: 232
+        y: 363
+        width: 309
+        height: 308
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: CirclesSheet_FilledCircle
+      name: FilledWhiteCircle
       rect:
         serializedVersion: 2
         x: 728
-        y: 346
-        width: 439
-        height: 438
+        y: 363
+        width: 308
+        height: 308
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: CirclesSheet_Paly
+      name: Play
       rect:
         serializedVersion: 2
         x: 115
         y: 80
         width: 154
-        height: 173
+        height: 172
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: CirclesSheet_3
+      name: UnMute
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1
-        height: 1
+        x: 327
+        y: 146
+        width: 68
+        height: 52
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -175,51 +190,51 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: CirclesSheet_Unmute
+      name: CirclesSheet_6
       rect:
         serializedVersion: 2
-        x: 327
-        y: 146
-        width: 69
-        height: 52
+        x: 0
+        y: 0
+        width: 1
+        height: 1
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: CirclesSheet_Mute
+      name: Mute
       rect:
         serializedVersion: 2
         x: 454
         y: 140
-        width: 69
-        height: 65
+        width: 68
+        height: 64
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: CirclesSheet_Help
+      name: CirclesSheet_8
       rect:
         serializedVersion: 2
-        x: 581
-        y: 137
-        width: 41
-        height: 70
+        x: 580
+        y: 138
+        width: 42
+        height: 69
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: CirclesSheet_ICE
+      name: Ice
       rect:
         serializedVersion: 2
         x: 680
         y: 127
-        width: 104
+        width: 103
         height: 86
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -227,13 +242,13 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: CirclesSheet_Pause
+      name: Pause
       rect:
         serializedVersion: 2
-        x: 842
-        y: 141
-        width: 50
-        height: 63
+        x: 841
+        y: 140
+        width: 49
+        height: 64
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -253,25 +268,25 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: CirclesSheet_Plus
+      name: Plus
       rect:
         serializedVersion: 2
-        x: 949
+        x: 948
         y: 127
         width: 67
-        height: 67
+        height: 66
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: CirclesSheet_Minus
+      name: Minus
       rect:
         serializedVersion: 2
-        x: 1075
+        x: 1074
         y: 158
-        width: 59
+        width: 58
         height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -279,7 +294,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: CirclesSheet_14
+      name: Help
       rect:
         serializedVersion: 2
         x: 0

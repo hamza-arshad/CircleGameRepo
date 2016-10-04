@@ -35,7 +35,10 @@ public class GameController : MonoBehaviour {
     private int score;
     private int highScore;
     private float filledScale;
-    
+    private int coins;
+    private int previousScore;
+    private const int COST = 12;
+
     void Start () {
         gameOverPanel.SetActive(false);
         scoreBox.enabled = true;
@@ -51,7 +54,38 @@ public class GameController : MonoBehaviour {
         scoreBox.text = "0";
         score = 0;
         highScore = PlayerPrefs.GetInt(Helpers.HIGHSCORE_KEY, 0);
+        coins = PlayerPrefs.GetInt(Helpers.COINS_KEY);
+        previousScore = 0;
     }
+
+    public bool CountinueGame() {
+
+        if (coins < COST)
+            return false;
+        else {
+
+            score = previousScore;
+            coins = coins - COST;
+            PlayerPrefs.SetInt(Helpers.COINS_KEY, coins);
+            scoreBox.text = score.ToString();
+            gameOverPanel.SetActive(false);
+            scoreBox.enabled = true;
+            Application.targetFrameRate = 60;
+            currentSpeed = minSpeed;
+            int a = Random.Range(1, 3);
+            if (a == 1)
+                CreateGrowingCirlce();
+            else if (a == 2)
+                CreateDecreasingCircle();
+            highScore = PlayerPrefs.GetInt(Helpers.HIGHSCORE_KEY, 0);
+            coins = PlayerPrefs.GetInt(Helpers.COINS_KEY);
+            previousScore = 0;
+        }
+
+        return true;
+
+    }
+    
      void setSpeed()
     {
         textLog.text = currentSpeed+"";
@@ -77,7 +111,7 @@ public class GameController : MonoBehaviour {
         if (done) {
             this.score += 1;
             scoreBox.text = score.ToString();
-            int a = Random.Range(1, 2);
+            int a = Random.Range(1, 3);
             if (a == 1)
                 CreateGrowingCirlce();
             else if (a == 2)
@@ -105,7 +139,7 @@ public class GameController : MonoBehaviour {
         {
             highScoreText.text = highScore.ToString();
         }
-        
+        previousScore = score;
         scoretext.text = score.ToString();
         scoreBox.enabled = false;
 
@@ -116,10 +150,10 @@ public class GameController : MonoBehaviour {
     void CreateDecreasingCircle() {
         
         setSpeed();
-        dottedScale = Random.Range(0.2F, 0.5F);
-        filledScale = Random.Range(dottedScale + 0.15F, 1F);
-        dx = Random.Range(-1F, 1F);
-        dy = Random.Range(-2.5F, 1.3F);
+        dottedScale = Random.Range(0.5F, 1F);
+        filledScale = Random.Range(dottedScale + 0.15F, 1.5F);
+        dx = Random.Range(-0.5F, 0.5F);
+        dy = Random.Range(-2F, 0.8F);
         obj = Instantiate(CirclePrefab);
         currntController = obj.GetComponent<CircleController>();
         obj.transform.position = new Vector3(dx, dy, 1);
@@ -133,9 +167,9 @@ public class GameController : MonoBehaviour {
 
     void CreateGrowingCirlce () {
         setSpeed();
-        dottedScale = Random.Range(0.5F, 1F);
-        dx = Random.Range(-1F, 1F);
-        dy = Random.Range(-2.5F, 1.3F);
+        dottedScale = Random.Range(0.5F, 1.5F);
+        dx = Random.Range(-0.5F, 0.5F);
+        dy = Random.Range(-2F, 0.8F);
         obj = Instantiate(CirclePrefab);
         currntController = obj.GetComponent<CircleController>();
         obj.transform.position = new Vector3(dx, dy, 1);
