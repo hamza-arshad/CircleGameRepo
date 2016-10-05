@@ -142,6 +142,7 @@ public class GameController : MonoBehaviour {
         previousScore = score;
         scoretext.text = score.ToString();
         scoreBox.enabled = false;
+       
 
     }
 

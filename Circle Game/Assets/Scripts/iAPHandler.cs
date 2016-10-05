@@ -67,12 +67,19 @@ public class iAPHandler : MonoBehaviour {
 	public void onItemPurchased(PurchasableVirtualItem pvi, string note) {
 		Debug.Log( "Bought pack.\n Thanks!");
 
-		if (pvi.ItemId == GameAssets.COINS_CURRENCY_100PACK_ITEM_ID) {
-			AddCoins (100);
+		if (pvi.ItemId == GameAssets.COINS_CURRENCY_50PACK_ITEM_ID) {
+			AddCoins (50);
 		}
-		else if (pvi.ItemId == GameAssets.COINS_CURRENCY_200PACK_ITEM_ID) {
-			AddCoins (200);
+		else if (pvi.ItemId == GameAssets.COINS_CURRENCY_150PACK_ITEM_ID) {
+			AddCoins (150);
 		}
+        else if (pvi.ItemId == GameAssets.COINS_CURRENCY_500PACK_ITEM_ID) {
+            AddCoins(500);
+        }
+        else if(pvi.ItemId == GameAssets.COINS_CURRENCY_2000PACK_ITEM_ID) {
+
+            AddCoins(2000);
+        }
 
 
 	}
@@ -197,7 +204,7 @@ public class iAPHandler : MonoBehaviour {
 
 	public void Package1Clicked() {
 		if (Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.IPhonePlayer ) {
-			StoreInventory.BuyItem(GameAssets.COINS_CURRENCY_100PACK_ITEM_ID);
+			StoreInventory.BuyItem(GameAssets.COINS_CURRENCY_50PACK_ITEM_ID);
 		}else {
 			//Testing on the computer e.g
 			Debug.Log("Thanks for your purchase. \n It means a lot!");
@@ -205,21 +212,47 @@ public class iAPHandler : MonoBehaviour {
 	}
 	public void Package2Clicked() {
 		if (Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.IPhonePlayer ) {
-			StoreInventory.BuyItem(GameAssets.COINS_CURRENCY_200PACK_ITEM_ID);
+			StoreInventory.BuyItem(GameAssets.COINS_CURRENCY_150PACK_ITEM_ID);
 		}else {
 			//Testing on the computer e.g
 			Debug.Log("Thanks for your purchase. \n It means a lot!");
 		}
 	}
 
-	#if UNITY_ANDROID && !UNITY_EDITOR
+    public void Package3Clicked()
+    {
+        if (Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.IPhonePlayer)
+        {
+            StoreInventory.BuyItem(GameAssets.COINS_CURRENCY_500PACK_ITEM_ID);
+        }
+        else
+        {
+            //Testing on the computer e.g
+            Debug.Log("Thanks for your purchase. \n It means a lot!");
+        }
+    }
+
+    public void Package4Clicked()
+    {
+        if (Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.IPhonePlayer)
+        {
+            StoreInventory.BuyItem(GameAssets.COINS_CURRENCY_2000PACK_ITEM_ID);
+        }
+        else
+        {
+            //Testing on the computer e.g
+            Debug.Log("Thanks for your purchase. \n It means a lot!");
+        }
+    }
+
+#if UNITY_ANDROID && !UNITY_EDITOR
 	public void onIabServiceStarted() {
 
 	}
 	public void onIabServiceStopped() {
 
 	}
-	#endif
+#endif
 
 
 

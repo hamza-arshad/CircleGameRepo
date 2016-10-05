@@ -7,7 +7,8 @@ public class ButtonController : MonoBehaviour {
 
     GameObject game;
     GameController gameController;
-   
+    GameObject iapController;
+    iAPHandler iapScript;
     void Start() {
 
         game = GameObject.Find("GameController");
@@ -16,17 +17,23 @@ public class ButtonController : MonoBehaviour {
             gameController = game.GetComponent<GameController>();
         }
 
+        iapController = GameObject.Find("IAPController");
+        if (iapController)
+        {
+            iapScript = iapController.GetComponent<iAPHandler>();
+        }
+
     }
 
 
     public void PlayButton() {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(Helpers.MAIN_SCENE_INDEX);
 
     }
 
     public void HomeButton() {
 
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(Helpers.HOME_SCENE_INDEX);
 
     }
 
@@ -36,8 +43,29 @@ public class ButtonController : MonoBehaviour {
         bool flag = gameController.CountinueGame();
 
         if (!flag)
-            Debug.Log("Insufficient Coins");
+            SceneManager.LoadScene(Helpers.STORE_SCENE_INDEX);
     }
+
+    public void BuyPackage1()
+    {
+        iapScript.Package1Clicked();
+    }
+
+    public void BuyPackage2()
+    {
+        iapScript.Package2Clicked();
+    }
+
+    public void BuyPackage3()
+    {
+        iapScript.Package3Clicked();
+    }
+
+    public void BuyPackage4()
+    {
+        iapScript.Package4Clicked();
+    }
+
 
 
 }
