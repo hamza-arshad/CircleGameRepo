@@ -7,6 +7,8 @@ public class ButtonController : MonoBehaviour {
 
     GameObject game;
     GameController gameController;
+    GameObject backController;
+    BackController backScript;
     GameObject iapController;
     iAPHandler iapScript;
     void Start() {
@@ -21,6 +23,12 @@ public class ButtonController : MonoBehaviour {
         if (iapController)
         {
             iapScript = iapController.GetComponent<iAPHandler>();
+        }
+
+        backController = GameObject.Find("BackController");
+        if (backController)
+        {
+            backScript = backController.GetComponent<BackController>();
         }
 
     }
@@ -40,10 +48,14 @@ public class ButtonController : MonoBehaviour {
     public void CountinueButton() {
 
 
-        bool flag = gameController.CountinueGame();
+        bool flag = gameController.CheckCoins();
+        if (flag)
+            gameController.CountinueGame();
+        else
+            gameController.displayStorePanel(true);
 
-        if (!flag)
-            SceneManager.LoadScene(Helpers.STORE_SCENE_INDEX);
+        
+        
     }
 
     public void BuyPackage1()
@@ -66,6 +78,26 @@ public class ButtonController : MonoBehaviour {
         iapScript.Package4Clicked();
     }
 
+    public void StoreButton() {
+
+        SceneManager.LoadScene(Helpers.STORE_SCENE_INDEX);
+
+    }
+
+    public void BackButtonStore() {
+
+        backScript.LoadScene(1);
+
+    }
+
+    public void BackButtonStorePrefab()
+    {
+        bool flag = gameController.CheckCoins();
+        if (flag)
+            gameController.CountinueGame();
+        else
+            gameController.displayStorePanel(false);
+    }
 
 
 }

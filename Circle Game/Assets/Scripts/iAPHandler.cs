@@ -66,7 +66,7 @@ public class iAPHandler : MonoBehaviour {
 	/// <param name="pvi">Purchasable virtual item.</param>
 	public void onItemPurchased(PurchasableVirtualItem pvi, string note) {
 		Debug.Log( "Bought pack.\n Thanks!");
-
+       
 		if (pvi.ItemId == GameAssets.COINS_CURRENCY_50PACK_ITEM_ID) {
 			AddCoins (50);
 		}

@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-
+using Soomla.Store;
 
 public class GameController : MonoBehaviour {
     bool isDown = false;
@@ -18,6 +18,10 @@ public class GameController : MonoBehaviour {
     Text scoretext;
     [SerializeField]
     Text highScoreText;
+    [SerializeField]
+    GameObject storeCanvas;
+    [SerializeField]
+    Text costBox;
 
     private CircleController currntController;
     private GameObject obj;
@@ -37,7 +41,7 @@ public class GameController : MonoBehaviour {
     private float filledScale;
     private int coins;
     private int previousScore;
-    private const int COST = 12;
+    private int COST = 2;
 
     void Start () {
         gameOverPanel.SetActive(false);
@@ -55,15 +59,31 @@ public class GameController : MonoBehaviour {
         score = 0;
         highScore = PlayerPrefs.GetInt(Helpers.HIGHSCORE_KEY, 0);
         coins = PlayerPrefs.GetInt(Helpers.COINS_KEY);
+    
         previousScore = 0;
+        storeCanvas.SetActive(false);
+        costBox.text = "X " + COST.ToString();
+       
     }
+    public bool CheckCoins() {
+        if (coins < COST)
+            return false;
+        return true;
+
+    }
+
+    public void displayStorePanel(bool f) {
+        storeCanvas.SetActive(f);
+        gameOverPanel.SetActive(!f);
+        scoreBox.enabled = false;
+    }
+
+
 
     public bool CountinueGame() {
 
-        if (coins < COST)
-            return false;
-        else {
-
+        
+            displayStorePanel(false);
             score = previousScore;
             coins = coins - COST;
             PlayerPrefs.SetInt(Helpers.COINS_KEY, coins);
@@ -80,15 +100,15 @@ public class GameController : MonoBehaviour {
             highScore = PlayerPrefs.GetInt(Helpers.HIGHSCORE_KEY, 0);
             coins = PlayerPrefs.GetInt(Helpers.COINS_KEY);
             previousScore = 0;
-        }
-
+            COST = COST * 2;
+            costBox.text = "X " + COST.ToString();
+            
+        
         return true;
-
     }
     
      void setSpeed()
     {
-        textLog.text = currentSpeed+"";
         float increment = Random.Range(- 0.05f, 0.1f);
         currentSpeed += increment;
         dropCount++;
@@ -192,6 +212,9 @@ public class GameController : MonoBehaviour {
             OnMouseUp();
 
         }
+        coins = PlayerPrefs.GetInt(Helpers.COINS_KEY);
+        
+
     }
 
 
