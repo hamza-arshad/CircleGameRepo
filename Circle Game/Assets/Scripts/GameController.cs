@@ -148,8 +148,8 @@ public class GameController : MonoBehaviour {
 
     public void GameOver() {
         //SceneManager.LoadScene(0);
+
         gameOverPanel.SetActive(true);
-        
         if (highScore < score)
         {
             PlayerPrefs.SetInt(Helpers.HIGHSCORE_KEY, score);
@@ -162,8 +162,9 @@ public class GameController : MonoBehaviour {
         previousScore = score;
         scoretext.text = score.ToString();
         scoreBox.enabled = false;
-       
 
+        
+        Application.CaptureScreenshot("MyScore.png");
     }
 
 

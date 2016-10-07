@@ -38,16 +38,16 @@ public class GameAssets : IStoreAssets{
 	public const string COINS_CURRENCY_ITEM_ID = "coins_currency";
 
 	public const string COINS_CURRENCY_50PACK_ITEM_ID = "fifty_coins_pack";
-	public const string COINS_CURRENCY_150PACK_ITEM_ID = "One_Hunder_And_Fifty_Coins_Pack";
+	public const string COINS_CURRENCY_150PACK_ITEM_ID = "one_hunder_and_fifty_coins_pack";
 
 	public const string FIFTY_PACK_PRODUCT_ID = "fifty_coins";
-	public const string ONE_HUND_AND_FIFTY_PACK_PRODUCT_ID = "One_Hunder_And_Fifty_Coins";
+	public const string ONE_HUND_AND_FIFTY_PACK_PRODUCT_ID = "one_hundred_and_fifty_coins";
 
-    public const string COINS_CURRENCY_500PACK_ITEM_ID = "five_Hunder_Coins_Pack";
-    public const string COINS_CURRENCY_2000PACK_ITEM_ID = "Two_Thousand_Coins_Pack";
+    public const string COINS_CURRENCY_500PACK_ITEM_ID = "five_hunder_coins_pack";
+    public const string COINS_CURRENCY_2000PACK_ITEM_ID = "two_thousand_coins_pack";
 
-    public const string FIVE_HUND_PACK_PRODUCT_ID = "Five_Hunder_Coins";
-    public const string TWENTY_HUND_AND_PACK_PRODUCT_ID = "Two_Thousand_Coins";
+    public const string FIVE_HUND_PACK_PRODUCT_ID = "five_hundred_coins";
+    public const string TWENTY_HUND_AND_PACK_PRODUCT_ID = "two_thousand_coins";
 
 
     public static VirtualCurrency COINS_CURRENCY = new VirtualCurrency(

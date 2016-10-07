@@ -48,6 +48,9 @@ public class CircleController : MonoBehaviour {
 
     void DestroySweet()
     {
+        dottedCircle.SetActive(false);
+        plus.SetActive(false);
+        minus.SetActive(false);
         Color c = renderer2.color;
         c = Color.Lerp(c, new Color(c.r, c.g, c.b, c.a - 1), Time.deltaTime / time);
         if (c.a <= 0)
@@ -56,9 +59,7 @@ public class CircleController : MonoBehaviour {
             return;     
         }
         renderer2.color = c;
-        dottedCircle.SetActive(false);
-        plus.SetActive(false);
-        minus.SetActive(false);
+       
     }
 	
 	// Update is called once per frame

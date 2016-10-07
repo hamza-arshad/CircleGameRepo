@@ -8,5 +8,6 @@ public class Helpers  {
     public const int HOME_SCENE_INDEX = 1;
     public const int MAIN_SCENE_INDEX = 2;
     public const int STORE_SCENE_INDEX = 3;
+    public const int HELP_SCREEN_INDEX = 4;
 
 }

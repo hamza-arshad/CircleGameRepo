@@ -99,5 +99,18 @@ public class ButtonController : MonoBehaviour {
             gameController.displayStorePanel(false);
     }
 
+    public void HelpButton()
+    {
+        SceneManager.LoadScene(Helpers.HELP_SCREEN_INDEX);
+
+    }
+
+    public void ShareButton()
+    {
+
+        Share.ShareMessage("MyScore", "http://playstore", "Hey check my best score on Circles. Can you do better?", Application.persistentDataPath + "/MyScore.png", "http://playstore");
+
+    }
+
 
 }
