@@ -92,10 +92,7 @@ public class ButtonController : MonoBehaviour {
 
     public void BackButtonStorePrefab()
     {
-        bool flag = gameController.CheckCoins();
-        if (flag)
-            gameController.CountinueGame();
-        else
+        
             gameController.displayStorePanel(false);
     }
 

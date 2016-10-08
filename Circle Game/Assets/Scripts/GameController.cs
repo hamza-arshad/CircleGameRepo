@@ -62,7 +62,7 @@ public class GameController : MonoBehaviour {
     
         previousScore = 0;
         storeCanvas.SetActive(false);
-        costBox.text = "X " + COST.ToString();
+        costBox.text = COST.ToString();
        
     }
     public bool CheckCoins() {
@@ -101,7 +101,7 @@ public class GameController : MonoBehaviour {
             coins = PlayerPrefs.GetInt(Helpers.COINS_KEY);
             previousScore = 0;
             COST = COST * 2;
-            costBox.text = "X " + COST.ToString();
+            costBox.text = COST.ToString();
             
         
         return true;

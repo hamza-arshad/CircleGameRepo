@@ -7,7 +7,6 @@ public class iAPHandler : MonoBehaviour {
 
 	public static string errorMsg = "Status:";
     
-
     [SerializeField]
     Text textBox;
 
@@ -36,6 +35,8 @@ public class iAPHandler : MonoBehaviour {
 		StoreEvents.OnIabServiceStopped += onIabServiceStopped;
 #endif
         SoomlaStore.Initialize(new  GameAssets());
+
+        DontDestroyOnLoad(gameObject);
 		
 
 
@@ -43,12 +44,11 @@ public class iAPHandler : MonoBehaviour {
 	}
 	void AddCoins(int count) {
 		int cCoins = PlayerPrefs.GetInt (Helpers.COINS_KEY, 0);
-        string text = textBox.text;
-         text = text + "Coins " + cCoins.ToString() + "CoinsToBe Added: " + count.ToString();
-        textBox.text = text;
+        //string text = textBox.text;
+        // text = text + "Coins " + cCoins.ToString() + "CoinsToBe Added: " + count.ToString();
+        //textBox.text = text;
 		cCoins += count;
 		PlayerPrefs.SetInt (Helpers.COINS_KEY, cCoins);
-			
 	}
 
 	/// <summary>
@@ -74,7 +74,7 @@ public class iAPHandler : MonoBehaviour {
 	/// <param name="pvi">Purchasable virtual item.</param>
 	public void onItemPurchased(PurchasableVirtualItem pvi, string note) {
 		Debug.Log( "Bought pack.\n Thanks!");
-        textBox.text = "Bought pack.";
+        //textBox.text = "Bought pack.";
 		if (pvi.ItemId == GameAssets.COINS_CURRENCY_50PACK_ITEM_ID) {
 			AddCoins (50);
 		}
