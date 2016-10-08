@@ -100,7 +100,7 @@ public class CircleController : MonoBehaviour {
                 
                 renderer2.color = new Color(1f, 0f, 0f, 1f);
                 done = false;
-                controller.GameOver();
+                //controller.GameOver();
             }
 
 

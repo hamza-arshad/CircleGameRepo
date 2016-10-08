@@ -60,21 +60,37 @@ public class ButtonController : MonoBehaviour {
 
     public void BuyPackage1()
     {
+        if(iapScript == null)
+        {
+            iapScript = GameObject.Find("IAPController").GetComponent<iAPHandler>();
+        }
         iapScript.Package1Clicked();
     }
 
     public void BuyPackage2()
     {
+        if (iapScript == null)
+        {
+            iapScript = GameObject.Find("IAPController").GetComponent<iAPHandler>();
+        }
         iapScript.Package2Clicked();
     }
 
     public void BuyPackage3()
     {
+        if (iapScript == null)
+        {
+            iapScript = GameObject.Find("IAPController").GetComponent<iAPHandler>();
+        }
         iapScript.Package3Clicked();
     }
 
     public void BuyPackage4()
     {
+        if (iapScript == null)
+        {
+            iapScript = GameObject.Find("IAPController").GetComponent<iAPHandler>();
+        }
         iapScript.Package4Clicked();
     }
 
@@ -106,6 +122,22 @@ public class ButtonController : MonoBehaviour {
     {
 
         Share.ShareMessage("MyScore", "http://playstore", "Hey check my best score on Circles. Can you do better?", Application.persistentDataPath + "/MyScore.png", "http://playstore");
+
+    }
+
+    public void MuteButton() {
+
+        int mute = PlayerPrefs.GetInt(Helpers.MUTE_KEY);
+        if(mute == 1)
+        {
+            AudioListener.volume = 1.0F;
+            PlayerPrefs.SetInt(Helpers.MUTE_KEY, 0);
+        }
+        else
+        {
+            AudioListener.volume = 0F;
+            PlayerPrefs.SetInt(Helpers.MUTE_KEY, 1);
+        }
 
     }
 

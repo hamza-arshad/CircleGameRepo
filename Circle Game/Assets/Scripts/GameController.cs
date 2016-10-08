@@ -53,8 +53,7 @@ public class GameController : MonoBehaviour {
             CreateGrowingCirlce();
         else if (a == 2)
             CreateDecreasingCircle();
-
-
+        
         scoreBox.text = "0";
         score = 0;
         highScore = PlayerPrefs.GetInt(Helpers.HIGHSCORE_KEY, 0);
@@ -163,7 +162,8 @@ public class GameController : MonoBehaviour {
         scoretext.text = score.ToString();
         scoreBox.enabled = false;
 
-        
+        GameEventManager.TriggerGameOver();
+
         Application.CaptureScreenshot("MyScore.png");
     }
 
