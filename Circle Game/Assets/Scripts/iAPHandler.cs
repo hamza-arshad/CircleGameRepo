@@ -37,10 +37,6 @@ public class iAPHandler : MonoBehaviour {
         SoomlaStore.Initialize(new  GameAssets());
 
         DontDestroyOnLoad(gameObject);
-		
-
-
-
 	}
 	void AddCoins(int count) {
 		int cCoins = PlayerPrefs.GetInt (Helpers.COINS_KEY, 0);

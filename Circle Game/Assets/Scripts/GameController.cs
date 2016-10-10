@@ -135,12 +135,9 @@ public class GameController : MonoBehaviour {
                 CreateGrowingCirlce();
             else if (a == 2)
                 CreateDecreasingCircle();
-
         }
-
         else {
             GameOver();
-
         }
     }
 

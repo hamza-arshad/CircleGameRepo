@@ -28,9 +28,14 @@ public class CircleController : MonoBehaviour {
     bool flag;
     float speed = 0;
     float time;
-    
-    
-	void Awake () {
+
+    bool isBlinking = false;
+    float startTime = 0f;
+    float totalTime = 0f;
+
+    private const float ACCEPTED_DIFFERENCE = 0.03f;
+
+    void Awake () {
         pressed = false;
         flag = false;
         died = false;
@@ -60,14 +65,13 @@ public class CircleController : MonoBehaviour {
         }
         renderer2.color = c;
        
-    }
+    } 
 	
 	// Update is called once per frame
 	void Update () {
         if (died)
         {
             DestroySweet();
-            return;
 
         }
         if (pressed)
@@ -82,38 +86,63 @@ public class CircleController : MonoBehaviour {
         {
             float fx = filledCircle.transform.localScale.x;
             float dx = dottedCircle.transform.localScale.x;
-            float per = 0.03f;// (1/dx) * 0.055F;
+            float per = ACCEPTED_DIFFERENCE*dx;// (1/dx) * 0.055F;
+
             Debug.Log(fx+", "+ dx + ", " + per);
+            if (per < ACCEPTED_DIFFERENCE)
+                per = ACCEPTED_DIFFERENCE;
+
             float minX = dx - per;
             float maxX = dx + per;
 
-            if(fx>=minX && fx<= maxX)
+            if(fx >= minX && fx <= maxX)
             {
-                
-                
                 renderer2.color = new Color(0f, 128f, 0f, 1f);
                 done = true;
-                
             }
             else
             {
-                
                 renderer2.color = new Color(1f, 0f, 0f, 1f);
                 done = false;
                 //controller.GameOver();
             }
+        }
 
+        totalTime += Time.deltaTime;
+        if (isBlinking && totalTime > 0.5f)
+        {
+            SpriteRenderer image = dottedCircle.GetComponent<SpriteRenderer>();
+            switch (image.color.a.ToString())
+            {
+                case "0":
+                    image.color = new Color(104, 159, 56, 1);
+                    break;
+                case "1":
+                    image.color = new Color(104, 159, 56, 0);
+                    break;
+            }
+            totalTime = 0;
+            if (Time.time - startTime > 5f)
+            {
+                died = true;
+                flag = false;
+                controller.Done(false);
+                isBlinking = false;
+            }
+        }
 
+        if (done == true)
+        {
             died = true;
             flag = false;
             controller.Done(done);
-
         }
-
-        
-
-
-
+        else if(!isBlinking)
+        {
+            isBlinking = true;
+            startTime = Time.time;
+            totalTime = 0f;
+        }
 
     }
 
@@ -145,6 +174,4 @@ public class CircleController : MonoBehaviour {
         plus.SetActive(isGrowing);
         minus.SetActive(!isGrowing);
     }
-    
-
 }
