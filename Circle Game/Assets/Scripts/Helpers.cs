@@ -12,5 +12,7 @@ public class Helpers  {
     public const int HELP_SCREEN_INDEX = 4;
 
 	public const float TIME_TO_DIE = 3.0f;
+	public const float DOTS_WIDTH_PERCENT = 0.0315f;
+	public const float CIRCLE_ACCEPTED_DIFFERENCE = 0.01f;
 
 }

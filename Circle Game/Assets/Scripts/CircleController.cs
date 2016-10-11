@@ -99,6 +99,7 @@ public class CircleController : MonoBehaviour {
 				DestroySweet ();
 			else
 				DestroyEvil ();
+			return;
 		}
         if (pressed)
         {
@@ -107,13 +108,27 @@ public class CircleController : MonoBehaviour {
             else
                 filledCircle.transform.localScale = Vector3.Lerp(filledCircle.transform.localScale, new Vector3(filledCircle.transform.localScale.x - 1, filledCircle.transform.localScale.y - 1, 1), Time.deltaTime * speed);
             flag = true; 
+
+			float fx = filledCircle.transform.localScale.x;
+			if (fx > 5 || (fx < 0.1f && minus.activeSelf))
+				pressed = false;
         }
         if(!pressed && flag)
         {
-            float fx = filledCircle.transform.localScale.x;
-            float dx = dottedCircle.transform.localScale.x;
-            float per = 0.03f;// (1/dx) * 0.055F;
-            Debug.Log(fx+", "+ dx + ", " + per);
+			float fx = filledCircle.transform.localScale.x;
+			float dx = dottedCircle.transform.localScale.x;
+			Debug.Log ("Filled: " + fx + ", Required: " + dx);
+			// Gets the Width of Dots
+			float per = Helpers.DOTS_WIDTH_PERCENT*dx;// (1/dx) * 0.055F;
+
+			Debug.Log("Dots Width: " + per);
+			// Adds tolerance level
+			per += Helpers.CIRCLE_ACCEPTED_DIFFERENCE ;
+
+			Debug.Log("Total Tolerance" + per);
+
+
+			
             float minX = dx - per;
             float maxX = dx + per;
 
