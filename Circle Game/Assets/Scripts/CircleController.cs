@@ -19,57 +19,87 @@ public class CircleController : MonoBehaviour {
 
     GameObject game;
     GameController controller;
-    SpriteRenderer renderer1;
-    SpriteRenderer renderer2;
+    SpriteRenderer filledRenderer;
+    SpriteRenderer dottedRenderer;
    
-    private bool died;
     private bool done;
     bool pressed;
     bool flag;
     float speed = 0;
     float time;
+	bool dying = false;
     
-    
+	bool diedRight = true;
+	float timeSinceDyingBegin = 0.0f;
+	int blinks = 0;
 	void Awake () {
         pressed = false;
         flag = false;
-        died = false;
+        dying = false;
         time = 1/DyingSpeed;
         dottedCircle.SetActive(true);
         plus.SetActive(true);
-        renderer1 = dottedCircle.GetComponent<SpriteRenderer>();
-        renderer2 = filledCircle.GetComponent<SpriteRenderer>();
-        renderer1.color = new Color(255,255,255,255);
-        renderer2.color = new Color(0, 0, 0, 1);
+		dottedRenderer = dottedCircle.GetComponent<SpriteRenderer>();
+		filledRenderer = filledCircle.GetComponent<SpriteRenderer>();
+		dottedRenderer.color = new Color(255,255,255,255);
+		filledRenderer.color = new Color(0, 0, 0, 1);
         game = GameObject.Find("GameController");
         controller = game.GetComponent<GameController>();
         
 	}
+	void StartDie() {
+		dying = true;
+		plus.SetActive(false);
+		minus.SetActive(false);
+		timeSinceDyingBegin = 0;
+		if (diedRight) {
+			// Put it above next circle
+			dottedCircle.SetActive(false);
+			filledRenderer.sortingOrder = 1;
+			controller.Done (true);
+		} else {
+			dottedRenderer.color = new Color (0, 255, 0, 1);
+		}
+	}
+	void DestroyEvil() {
+		timeSinceDyingBegin += Time.deltaTime;
+		int totalBlinks = 10;
+		float blinkTime = Helpers.TIME_TO_DIE / totalBlinks;
+		if (blinks > totalBlinks) {
+			controller.Done (false);
+			Destroy (gameObject);
+			return;
+		}
+		if (timeSinceDyingBegin > blinkTime) {
+			timeSinceDyingBegin = 0;
+			blinks++;
+			dottedCircle.SetActive (!dottedCircle.activeSelf);
+		}
 
+	}
     void DestroySweet()
     {
-        dottedCircle.SetActive(false);
-        plus.SetActive(false);
-        minus.SetActive(false);
-        Color c = renderer2.color;
+	
+		Color c = filledRenderer.color;
         c = Color.Lerp(c, new Color(c.r, c.g, c.b, c.a - 1), Time.deltaTime / time);
         if (c.a <= 0)
         {
             Destroy(this.gameObject);
             return;     
         }
-        renderer2.color = c;
+		filledRenderer.color = c;
        
     }
 	
 	// Update is called once per frame
 	void Update () {
-        if (died)
-        {
-            DestroySweet();
-            return;
-
-        }
+		
+		if (dying) {
+			if (diedRight)
+				DestroySweet ();
+			else
+				DestroyEvil ();
+		}
         if (pressed)
         {
             if(plus.activeSelf == true)
@@ -91,22 +121,22 @@ public class CircleController : MonoBehaviour {
             {
                 
                 
-                renderer2.color = new Color(0f, 128f, 0f, 1f);
+				filledRenderer.color = new Color(0f, 128f, 0f, 1f);
                 done = true;
                 
             }
             else
             {
                 
-                renderer2.color = new Color(1f, 0f, 0f, 1f);
+				filledRenderer.color = new Color(1f, 0f, 0f, 1f);
                 done = false;
                 //controller.GameOver();
             }
 
 
-            died = true;
             flag = false;
-            controller.Done(done);
+			diedRight = done; 
+			StartDie ();
 
         }
 

@@ -11,4 +11,6 @@ public class Helpers  {
     public const int STORE_SCENE_INDEX = 3;
     public const int HELP_SCREEN_INDEX = 4;
 
+	public const float TIME_TO_DIE = 3.0f;
+
 }
