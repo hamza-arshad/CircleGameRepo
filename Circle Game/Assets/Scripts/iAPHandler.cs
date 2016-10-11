@@ -7,8 +7,7 @@ public class iAPHandler : MonoBehaviour {
 
 	public static string errorMsg = "Status:";
     
-    [SerializeField]
-    Text textBox;
+
 
 
 	void Start() {

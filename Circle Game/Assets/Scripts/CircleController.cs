@@ -56,8 +56,10 @@ public class CircleController : MonoBehaviour {
 			// Put it above next circle
 			dottedCircle.SetActive(false);
 			filledRenderer.sortingOrder = 1;
+			controller.SuccesSound ();
 			controller.Done (true);
 		} else {
+			controller.FailSound ();
 			dottedRenderer.color = new Color (0, 255, 0, 1);
 		}
 	}
@@ -68,9 +70,8 @@ public class CircleController : MonoBehaviour {
 		if (blinks > totalBlinks) {
 			controller.Done (false);
 			Destroy (gameObject);
-			return;
 		}
-		if (timeSinceDyingBegin > blinkTime) {
+		else if (timeSinceDyingBegin > blinkTime) {
 			timeSinceDyingBegin = 0;
 			blinks++;
 			dottedCircle.SetActive (!dottedCircle.activeSelf);
@@ -165,6 +166,8 @@ public class CircleController : MonoBehaviour {
    public void SetPressed(bool f)
     {
         pressed = f;
+		if (f)
+			controller.PressSound ();
 
     }
 

@@ -7,9 +7,9 @@ public class BackController : MonoBehaviour {
     bool isQuit;
     [SerializeField]
     int destScene;
-	
+	SoundController sound;
 	void Start () {
-	
+		sound = GameObject.FindGameObjectWithTag ("fxController").GetComponent<SoundController> ();
 	}
 	
 	
@@ -24,6 +24,7 @@ public class BackController : MonoBehaviour {
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+			sound.click ();
 
             if (isQuit)
             {

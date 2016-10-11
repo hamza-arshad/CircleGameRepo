@@ -11,8 +11,9 @@ public class ButtonController : MonoBehaviour {
     BackController backScript;
     GameObject iapController;
     iAPHandler iapScript;
+	SoundController sound;
     void Start() {
-
+		sound = GameObject.FindGameObjectWithTag ("fxController").GetComponent<SoundController> ();
         game = GameObject.Find("GameController");
         if (game)
         {
@@ -36,17 +37,19 @@ public class ButtonController : MonoBehaviour {
 
     public void PlayButton() {
         SceneManager.LoadScene(Helpers.MAIN_SCENE_INDEX);
+		sound.click ();
 
     }
 
     public void HomeButton() {
 
         SceneManager.LoadScene(Helpers.HOME_SCENE_INDEX);
+		sound.click ();
 
     }
 
     public void CountinueButton() {
-
+		sound.click ();
 
         bool flag = gameController.CheckCoins();
         if (flag)
@@ -60,6 +63,7 @@ public class ButtonController : MonoBehaviour {
 
     public void BuyPackage1()
     {
+		sound.click ();
         if(iapScript == null)
         {
             iapScript = GameObject.Find("IAPController").GetComponent<iAPHandler>();
@@ -69,6 +73,7 @@ public class ButtonController : MonoBehaviour {
 
     public void BuyPackage2()
     {
+		sound.click ();
         if (iapScript == null)
         {
             iapScript = GameObject.Find("IAPController").GetComponent<iAPHandler>();
@@ -78,6 +83,7 @@ public class ButtonController : MonoBehaviour {
 
     public void BuyPackage3()
     {
+		sound.click ();
         if (iapScript == null)
         {
             iapScript = GameObject.Find("IAPController").GetComponent<iAPHandler>();
@@ -87,6 +93,7 @@ public class ButtonController : MonoBehaviour {
 
     public void BuyPackage4()
     {
+		sound.click ();
         if (iapScript == null)
         {
             iapScript = GameObject.Find("IAPController").GetComponent<iAPHandler>();
@@ -95,32 +102,33 @@ public class ButtonController : MonoBehaviour {
     }
 
     public void StoreButton() {
-
+		sound.click ();
         SceneManager.LoadScene(Helpers.STORE_SCENE_INDEX);
 
     }
 
     public void BackButtonStore() {
-
+		sound.click ();
         backScript.LoadScene(1);
 
     }
 
     public void BackButtonStorePrefab()
     {
-        
+		sound.click ();
             gameController.displayStorePanel(false);
     }
 
     public void HelpButton()
     {
+		sound.click ();
         SceneManager.LoadScene(Helpers.HELP_SCREEN_INDEX);
 
     }
 
     public void ShareButton()
     {
-
+		sound.click ();
         Share.ShareMessage("MyScore", "http://playstore", "Hey check my best score on Circles. Can you do better?", Application.persistentDataPath + "/MyScore.png", "http://playstore");
 
     }
@@ -138,6 +146,8 @@ public class ButtonController : MonoBehaviour {
             AudioListener.volume = 0F;
             PlayerPrefs.SetInt(Helpers.MUTE_KEY, 1);
         }
+		sound.click ();
+
 
     }
 

@@ -42,8 +42,10 @@ public class GameController : MonoBehaviour {
     private int coins;
     private int previousScore;
     private int COST = 2;
-
+	private SoundController sound;
     void Start () {
+		sound = GameObject.FindGameObjectWithTag ("fxController").GetComponent<SoundController> ();
+
         gameOverPanel.SetActive(false);
         scoreBox.enabled = true;
         Application.targetFrameRate = 60;
@@ -218,7 +220,15 @@ public class GameController : MonoBehaviour {
 
     }
 
-
+	public void PressSound() {
+		sound.fillingStarted ();
+	}
+	public void FailSound() {
+		sound.fillingFailed ();
+	}
+	public void SuccesSound() {
+		sound.fillingSucces ();
+	}
 
     void OnMouseDown()
     {
