@@ -133,23 +133,7 @@ public class ButtonController : MonoBehaviour {
 
     }
 
-    public void MuteButton() {
 
-        int mute = PlayerPrefs.GetInt(Helpers.MUTE_KEY);
-        if(mute == 1)
-        {
-            AudioListener.volume = 1.0F;
-            PlayerPrefs.SetInt(Helpers.MUTE_KEY, 0);
-        }
-        else
-        {
-            AudioListener.volume = 0F;
-            PlayerPrefs.SetInt(Helpers.MUTE_KEY, 1);
-        }
-		sound.click ();
-
-
-    }
 
 
 }

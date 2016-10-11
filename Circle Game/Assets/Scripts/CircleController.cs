@@ -166,7 +166,7 @@ public class CircleController : MonoBehaviour {
    public void SetPressed(bool f)
     {
         pressed = f;
-		if (f)
+		if (f && !dying)
 			controller.PressSound ();
 
     }
